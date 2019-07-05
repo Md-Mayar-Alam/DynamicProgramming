@@ -11,7 +11,7 @@ public class LongestIncreasingSubsequenceDP {
 	
 	public static void main(String args[]) {
 	
-		Integer arr[] = { 10, 22, 8, 9, 21, 41, 50, 60 };
+		Integer arr[] = { 51, 22, 8, 9, 21, 41, 50, 60 };
 		//int arr[]= {10, 2, 9, 3, 5, 4, 6, 8};
 		int length= arr.length;
 		

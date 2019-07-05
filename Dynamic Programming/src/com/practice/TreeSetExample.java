@@ -13,6 +13,6 @@ public class TreeSetExample {
 		treeset.add(3);
 		treeset.add(4);
 		
-		System.out.println("Hello");
+		System.out.println("Hello" + treeset);
 	}
 }
