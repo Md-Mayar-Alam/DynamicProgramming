@@ -71,11 +71,17 @@ public class BoxStacking {
     			{45, 55, 35}
     	};*/
     	
-    	int [][]x= {
+    	/*int [][]x= {
     			{4, 2, 5},
     			{3, 1, 6},
     			{3, 2, 1},
     			{6, 3, 8}
+    	};*/
+    	
+    	int [][]x= {
+    			{5, 4, 2},
+    			{5, 3, 1},
+    			{8, 6, 3}
     	};
     	
         BoxStacking boxStacking = new BoxStacking();

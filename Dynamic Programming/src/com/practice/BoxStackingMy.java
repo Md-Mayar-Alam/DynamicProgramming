@@ -70,22 +70,36 @@ public class BoxStackingMy {
 			box[i*3 + 1]= new Box(width, depth, height);
 			box[i*3 + 2]= new Box(depth, height, width);*/
 			
-			box[i*3]= new Box(height, width, depth);
+			/*box[i*3]= new Box(height, width, depth);
 			box[i*3 + 1]= new Box(height, depth, width);
+			box[i*3 + 2]= new Box(depth, height, width);*/
+			
+			box[i*3]= new Box(height, width, depth);
+			box[i*3 + 1]= new Box(width, height, depth);
 			box[i*3 + 2]= new Box(depth, height, width);
+			
+			/*box[i*3]= new Box(height, width, depth);
+			box[i*3 + 1]= new Box(width, depth, height);
+			box[i*3 + 2]= new Box(depth, height, width);*/
 			
 			/*box[i*3]= new Box(height, max(width, depth), min(width, depth) );
 			box[i*3 + 1]= new Box(width, max(height, depth), min(height, depth));
 			box[i*3 + 2]= new Box(depth, max(height, width), min(height, width));*/
 		}
 		
-		sort(box);
+		System.out.println("Boxes before sorting");
+		
+		for(int i=0; i< box.length; i++) {
+			System.out.println("H "+ box[i].height + " W "+ box[i].width + " D "+ box[i].depth);
+		}
+		
+		/*sort(box);
 		
 		System.out.println("Boxes after sorting");
 		
 		for(int i=0; i< box.length; i++) {
 			System.out.println("H "+ box[i].height + " W "+ box[i].width + " D "+ box[i].depth);
-		}
+		}*/
 		
 		int boxHeight[]= new int[box.length];
 		
@@ -93,15 +107,56 @@ public class BoxStackingMy {
 			boxHeight[i]= box[i].height;
 		}
 		
-		for(int i=0; i< box.length; i++) {
+		for(int i=3; i< box.length; i++) {
 			int val= 0;
 			boxHeight[i]= 0;
 			
-			for(int j=0; j< i; j++) {
+			int indexToCompare= -1;
+			if(i % 3 == 0) {
+				indexToCompare= i;
+			}else if(i % 3 == 1) {
+				indexToCompare= i-1;
+			}else if(i % 3 == 2) {
+				indexToCompare= i-2;
+			}
+			
+			for(int j=0; j< indexToCompare; j++) {
+				/*if(box[i].width <= box[j].width && box[i].depth <= box[j].depth) {
+					val= max(val, boxHeight[j]);
+				}*/
+				
 				if(box[i].width <= box[j].width && box[i].depth <= box[j].depth) {
 					val= max(val, boxHeight[j]);
 				}
 			}
+			
+			/*int indexToCompare= -1;
+			
+			int indexJStart= -1;
+			
+			if(i < 3) {
+				indexJStart= 3;
+				indexToCompare= box.length;
+			}else {
+				indexJStart= 0;
+				if(i % 3 == 0) {
+					indexToCompare= i;
+				}else if(i % 3 == 1) {
+					indexToCompare= i-1;
+				}else if(i % 3 == 2) {
+					indexToCompare= i-2;
+				}
+			}
+			
+			for(int j=indexJStart; j< indexToCompare; j++) {
+				if(box[i].width <= box[j].width && box[i].depth <= box[j].depth) {
+					val= max(val, boxHeight[j]);
+				}
+				
+				if(box[i].width >= box[j].width && box[i].depth >= box[j].depth) {
+					val= max(val, boxHeight[j]);
+				}
+			}*/
 			boxHeight[i]= val + box[i].height;
 		}
 		

@@ -2,6 +2,8 @@ package com.practice;
 
 import java.util.Scanner;
 
+import com.practice.BoxStackingMy.Box;
+
 public class BoxPractice {
 	static class Box{
 		int height;
@@ -46,12 +48,20 @@ public class BoxPractice {
 			int width= boxArray[i][1];
 			int depth= boxArray[i][2];
 			
+			/*box[i*3]= new Box(height, width, depth);
+			box[i*3 + 1]= new Box(height, depth, width);
+			box[i*3 + 2]= new Box(depth, height, width);*/
+			
+			
 			if(height >= width && height >= depth ){
-				box[i]= new Box(height, max(width, depth), min(width, depth) );
+				//box[i]= new Box(height, max(width, depth), min(width, depth) );
+				box[i]= new Box(height, width, depth);
 			}else if(width >= height && width >= depth) {
-				box[i]= new Box(width, max(height, depth), min(height, depth));
+				//box[i]= new Box(width, max(height, depth), min(height, depth));
+				box[i]= new Box(width, height, depth);
 			}else if(depth >= height && depth >= width) {
-				box[i]= new Box(depth, max(height, width), min(height, width));
+				//box[i]= new Box(depth, max(height, width), min(height, width));
+				box[i]= new Box(depth, height, width);
 			}
 		}
 		
